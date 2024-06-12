@@ -125,8 +125,31 @@ p {
     display: block;
 }
 
+.form-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+}
+
+.form-heading h1 {
+    margin-left: 210px;
+    font-weight: 600;
+}
+
+.close-modal-button {
+    border: none;
+    background-color: transparent;
+    aspect-ratio: 1/1;
+}
+
+.close-modal-button img {
+    object-fit: contain;
+    width: 16px;
+}
+
 .add-book-form {
-    padding: 1rem;
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -139,4 +162,15 @@ p {
     border-radius: 12px;
     padding: 1rem;
     width: 90%;
+    font-size: 1.25rem;
+}
+
+.form-submit-button {
+    background-color: rgb(45, 132, 45);
+    color: white;
+    font-size: 1.5rem !important;
+}
+
+.form-submit-button:hover {
+    background-color: rgb(58, 173, 58);
 }
