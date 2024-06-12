@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: auto;
+    background-color: #e6e6e6;
+    padding: 0 15vw;
+}
+
+.book-list-section {
+    padding: 0 15vw;
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    gap: 1rem;
+}
+
+.book-list-section.blur {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.book {
+    border: 1px solid #e6e6e6;
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+p {
+    margin: 0;
+}
+
+.book-title {
+    font-weight: 500;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.book-author {
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.book-pages {
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.delete-button {
+    background-color: #ff5b5b;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 12px;
+    width: 90%;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #fd8585;
+}
+
+.add-book-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.add-book-section.blur {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.add-book-button {
+    margin: auto;
+}
+
+.add-book-button button {
+    background-color: rgb(45, 132, 45);
+    width: 15rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #e6e6e6;
+}
+
+.add-book-button button:hover {
+    background-color: rgb(58, 173, 58);
+}
+
+.add-book-form-modal {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    display: none;
+    margin: 0 25%;
+    width: 30%;
+    background-color: #e6e6e6;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.add-book-form-modal.active {
+    display: block;
+}
+
+.add-book-form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.add-book-form input {
+    border: none;
+    border-radius: 12px;
+    padding: 1rem;
+    width: 90%;
+}
