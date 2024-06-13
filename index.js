@@ -96,15 +96,14 @@ const bookExists = (newBook) => {
     console.log("new book esists")
     console.log(newBook)
     console.log(booksList)
-    console.log(booksList.some((book) => book.title === newBook.title));
-    return booksList.some((book) => book.title === newBook.title);
+    console.log(booksList.some((book) => book.name === newBook.name));
+    return booksList.some(book => book.name === newBook.name);
 }
 
 const addBookToList = (e) => {
     e.preventDefault();
 
     const newBook = getBookFromUser();
-    console.log(newBook)
 
     if(!bookExists(newBook)) {
         booksList.push(newBook);
