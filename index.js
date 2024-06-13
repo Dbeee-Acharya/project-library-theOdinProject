@@ -3,13 +3,9 @@ const addBookFormModal = document.querySelector('.add-book-form-modal');
 const bookListSection = document.querySelector('.book-list-section');
 const addBookSection = document.querySelector('.add-book-section');
 const closeModalButton = document.querySelector('.close-modal-button');
+const addBookFormId = document.getElementById('add-book-form-id');
 
 let booksList = []
-
-for (let i=0; i < 5; i++) {
-    let book = new Book("test", "test", 100);
-    booksList.push(book);
-}
 
 addBookButton.addEventListener("click", ()=>{
     addBookFormModal.classList.toggle("active");
@@ -25,10 +21,11 @@ closeModalButton.addEventListener("click", ()=>{
 
 
 //constructor for Book object
-function Book(name, author, pages) {
+function Book(name, author, pages, pagesRead) {
     this.name = name;
     this.author = author;
     this.pages = pages;
+    this.pagesRead = pagesRead;
 }
 
 const createBookCard = (book, index) => {
@@ -36,6 +33,7 @@ const createBookCard = (book, index) => {
     const bookTitle = document.createElement('p');
     const bookAuthor = document.createElement('p');
     const bookPages = document.createElement('p');
+    const pagesRead = document.createElement('p');
     const removeBookButton = document.createElement('button');
 
     removeBookButton.addEventListener('click', ()=> {
@@ -46,6 +44,7 @@ const createBookCard = (book, index) => {
     bookTitle.classList.add('book-title');
     bookAuthor.classList.add('book-author');
     bookPages.classList.add('book-pages');
+    pagesRead.classList.add('pages-read');
     removeBookButton.classList.add('delete-button');
 
     removeBookButton.setAttribute('id', index);
@@ -53,11 +52,13 @@ const createBookCard = (book, index) => {
     bookTitle.textContent = book.name;
     bookAuthor.textContent = book.author;
     bookPages.textContent = `${book.pages} pages`;
+    pagesRead.textContent = `Pages Read: ${book.pagesRead}`;
     removeBookButton.textContent = 'Remove';
 
     bookCard.appendChild(bookTitle);
     bookCard.appendChild(bookAuthor);
     bookCard.appendChild(bookPages);
+    bookCard.appendChild(pagesRead);
     bookCard.appendChild(removeBookButton);
     bookListSection.appendChild(bookCard); 
 }
@@ -80,8 +81,44 @@ const removeBook = (button) => {
     const index = button.id;
     booksList.splice(index,1);
     populateBookSection()
-}  
+}
+
+const getBookFromUser = () => { 
+    const title = document.getElementById('bookName').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const pagesRead = document.getElementById('pagesRead').value;
+
+    return new Book(title, author, pages, pagesRead);
+}
+
+const bookExists = (newBook) => {
+    console.log("new book esists")
+    console.log(newBook)
+    console.log(booksList)
+    console.log(booksList.some((book) => book.title === newBook.title));
+    return booksList.some((book) => book.title === newBook.title);
+}
+
+const addBookToList = (e) => {
+    e.preventDefault();
+
+    const newBook = getBookFromUser();
+    console.log(newBook)
+
+    if(!bookExists(newBook)) {
+        booksList.push(newBook);
+        populateBookSection()
+        console.log(booksList)
+    } else {
+        console.log("book already exists")
+    }
+}
+
+addBookFormId.addEventListener('submit', addBookToList);
 
 populateBookSection();
+
+
  
 

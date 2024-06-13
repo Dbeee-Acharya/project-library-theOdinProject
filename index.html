@@ -29,12 +29,13 @@
             <h1>Add Book</h1>
             <button class="close-modal-button"><img src="https://cdn-icons-png.flaticon.com/512/2976/2976286.png" alt=""></button>
         </div>
-        <form action="" class="add-book-form">
-            <input type="text" name="bookName" id="bookName" placeholder="Book Name">
-            <input type="text" name="author" id="author" placeholder="Book Author">
-            <input type="number" name="pages" id="pages" placeholder="Pages">
+        <form action="" class="add-book-form" id="add-book-form-id">
+            <input type="text" name="bookName" id="bookName" placeholder="Book Name" required>
+            <input type="text" name="author" id="author" placeholder="Book Author" required>
+            <input type="number" name="pages" id="pages" placeholder="Pages" required>
+            <input type="number" name="pagesRead" id="pagesRead" placeholder="Pages Read" required>
 
-            <input type="button" value="Add" class="form-submit-button">
+            <input type="submit" value="Add" class="form-submit-button">
         </form>
     </section>
 
