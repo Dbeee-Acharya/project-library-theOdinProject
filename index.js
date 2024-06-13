@@ -17,6 +17,7 @@ closeModalButton.addEventListener("click", ()=>{
     addBookFormModal.classList.toggle("active");
     bookListSection.classList.toggle("blur");
     addBookSection.classList.toggle('blur');
+    clearFormInput();
 })
 
 
@@ -85,6 +86,14 @@ const removeBook = (button) => {
 
 const clearFormInput = () => {
     addBookFormId.reset();
+
+    const pagesReadInput = document.getElementById('pagesRead');
+    pagesReadInput.setAttribute("placeholder", "Pages Read");
+    pagesReadInput.style.border = "none";
+
+    const bookNameInput = document.getElementById('bookName');
+    bookNameInput.setAttribute('placeholder', 'Book Name');
+    bookNameInput.style.border = "none";
 }
 
 const getBookFromUser = () => { 
@@ -97,11 +106,7 @@ const getBookFromUser = () => {
 }
 
 const bookExists = (newBook) => {
-    console.log("new book esists")
-    console.log(newBook)
-    console.log(booksList)
-    console.log(booksList.some((book) => book.name === newBook.name));
-    return booksList.some(book => book.name === newBook.name);
+    return booksList.some(book => (book.name).toLowerCase() === (newBook.name).toLowerCase());
 }
 
 const addBookToList = (e) => {
@@ -110,15 +115,34 @@ const addBookToList = (e) => {
     const newBook = getBookFromUser();
 
     if(!bookExists(newBook)) {
-        booksList.push(newBook);
-        populateBookSection()
-        addBookFormModal.classList.toggle("active");
-        bookListSection.classList.toggle("blur");
-        addBookSection.classList.toggle('blur');
-        clearFormInput();
+        if(newBook.pages >= newBook.pagesRead) {
+            booksList.push(newBook);
+            populateBookSection()
+            addBookFormModal.classList.toggle("active");
+            bookListSection.classList.toggle("blur");
+            addBookSection.classList.toggle('blur');
+            clearFormInput();
+        } else {
+            pagesReadGreater();
+        }
+
     } else {
-        console.log("book already exists")
+        bookExistserror();
     }
+}
+
+const pagesReadGreater = () => {
+    const pagesReadInput = document.getElementById('pagesRead');
+    pagesReadInput.setAttribute("placeholder", "pages read is greater than total pages");
+    pagesReadInput.style.border = "1px solid red";
+    bookNameInput.value = "";
+}
+
+const bookExistserror = () => {
+    const bookNameInput = document.getElementById('bookName');
+    bookNameInput.setAttribute('placeholder', 'book already exists');
+    bookNameInput.style.border = "1px solid red";
+    bookNameInput.value = "";
 }
 
 addBookFormId.addEventListener('submit', addBookToList);

@@ -171,6 +171,10 @@ p {
     font-size: 1.25rem;
 }
 
+.add-book-form input.invalid {
+    border: 1px solid red;
+}
+
 .form-submit-button {
     background-color: rgb(45, 132, 45);
     color: white;
