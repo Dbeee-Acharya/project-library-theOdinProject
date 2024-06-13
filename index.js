@@ -83,6 +83,10 @@ const removeBook = (button) => {
     populateBookSection()
 }
 
+const clearFormInput = () => {
+    addBookFormId.reset();
+}
+
 const getBookFromUser = () => { 
     const title = document.getElementById('bookName').value;
     const author = document.getElementById('author').value;
@@ -108,7 +112,10 @@ const addBookToList = (e) => {
     if(!bookExists(newBook)) {
         booksList.push(newBook);
         populateBookSection()
-        console.log(booksList)
+        addBookFormModal.classList.toggle("active");
+        bookListSection.classList.toggle("blur");
+        addBookSection.classList.toggle('blur');
+        clearFormInput();
     } else {
         console.log("book already exists")
     }
