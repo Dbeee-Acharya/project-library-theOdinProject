@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/f7ace914ae.js" crossorigin="anonymous"></script>
+    <script defer src="./index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Library</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/3389/3389081.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>
+            Library
+        </h1>
+    </header>
+
+    <section class="book-list-section">
+    </section>
+
+    <section class="add-book-section">
+        <div class="add-book-button">
+            <button class="add-book-button-main">Add Book</button>
+        </div>
+    </section>
+
+    <section class="add-book-form-modal">
+        <div class="form-heading">
+            <h1>Add Book</h1>
+            <button class="close-modal-button"><img src="https://cdn-icons-png.flaticon.com/512/2976/2976286.png" alt=""></button>
+        </div>
+        <form action="" class="add-book-form" id="add-book-form-id">
+            <input type="text" name="bookName" id="bookName" placeholder="Book Name" required>
+            <input type="text" name="author" id="author" placeholder="Book Author" required>
+            <input type="number" name="pages" id="pages" placeholder="Pages" required>
+            <input type="number" name="pagesRead" id="pagesRead" placeholder="Pages Read" required>
+
+            <input type="submit" value="Add" class="form-submit-button">
+        </form>
+    </section>
+
+</body>
+</html>
